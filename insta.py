@@ -6,11 +6,11 @@ driver=webdriver.Chrome(executable_path="chromedriver.exe")
 driver.get("https://instagram.com")
 sleep(5)
 
-# Buraya kendi kullanici adinizi yaziyorusunuz
+# Buraya(XXXXXXXXXXXX) kendi kullanici adinizi yaziyorusunuz
 driver.find_element_by_xpath("/html/body/div[1]/section/main/article/div[2]/div[1]/div[2]/form/div/div[1]/div/label/input")\
     .send_keys("XXXXXXXXXXXXXXXXX")
 sleep(2)
-# Buraya kendi şifrenizi yaziyorsunuz
+# Buraya(XXXXXXXXXXXX) kendi şifrenizi yaziyorsunuz
 driver.find_element_by_xpath("/html/body/div[1]/section/main/article/div[2]/div[1]/div[2]/form/div/div[2]/div/label/input")\
     .send_keys("XXXXXXXXXXXXXXXX")
 sleep(2)
