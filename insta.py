@@ -14,19 +14,25 @@ driver.get("https://instagram.com")
 driver.maximize_window()
 sleep(5)
 
-# Buraya(XXXXXXXXXXXX) kendi kullanici adinizi yaziyorusunuz
 driver.find_element_by_xpath("/html/body/div[1]/section/main/article/div[2]/div[1]/div[2]/form/div/div[1]/div/label/input")\
     .send_keys(kullaniciAdi)
 sleep(0.5)
-# Buraya(XXXXXXXXXXXX) kendi şifrenizi yaziyorsunuz
+
 driver.find_element_by_xpath("/html/body/div[1]/section/main/article/div[2]/div[1]/div[2]/form/div/div[2]/div/label/input")\
     .send_keys(kullaniciSifre)
+
 sleep(0.5)
+
 driver.find_element_by_xpath("/html/body/div[1]/section/main/article/div[2]/div[1]/div[2]/form/div/div[3]")\
     .click()
 sleep(4)
-driver.find_element_by_xpath("/html/body/div[1]/section/main/div/div/div/div/button")\
-    .click()
+try:
+    driver.find_element_by_xpath("/html/body/div[1]/section/main/div/div/div/div/button")\
+        .click()
+except:
+    print("\n\n\n\nkullanici adi veya şifre yanlıştır")
+    driver.close()
+    exit("tekrar deneyiniz")
 sleep(4)
 driver.find_element_by_xpath("/html/body/div[1]/div/div[1]/div/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div/div/div/div[3]/button[2]")\
     .click()
@@ -49,5 +55,7 @@ for i in range(30):
             pass               
         sleep(1)                     
     driver.refresh()
+    print("SimdiyeKadarGecilen: "+kacKereGecildi+"            Kac kisi takip ediliyor: "+kacKisiTakipEdildi)
     sleep(300)
-print("SimdiyeKadarGecilen: "+kacKereGecildi+"            Kac kisi takip ediliyor: "+kacKisiTakipEdildi)
+    
+print("Bitti")
