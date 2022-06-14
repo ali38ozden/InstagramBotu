@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 from time import sleep
 import random
 
-text=["takip edermisiniz","takipe takip ","nice post","gt","takip edebilirmisiniz","beni geri takip edermisiniz","yeni bir şeyler deniyorum beni takip edermisiniz","sevdim inkar edemem yaşadım isyan edemem",\
+text=["gT","GT","Gt","takip edermisiniz","gt","takipe takip ","nice post","gt","takip edebilirmisiniz","beni geri takip edermisiniz","yeni bir şeyler deniyorum beni takip edermisiniz","sevdim inkar edemem yaşadım isyan edemem",\
     "umdum cenneten ","zaman öylede geçiyor","hayat böylede bitiyor","bu yourmu okuyosan okumuş oluyosun sdfhasdfaf","güzel post","yazlım ile uğraşan varmı","bir takip ederseniz sevinirim be","yazlim oğrenmek istyenler buyursun efendim"]
 
 
@@ -136,11 +136,11 @@ def BaslaIslem():
     if Bir_Sayfada_KacKisi_Takip1_Input.get()!="":
         Bir_Sayfada_KacKisi_Takip=Bir_Sayfada_KacKisi_Takip1_Input.get()
     else:
-        Bir_Sayfada_KacKisi_Takip=0
+        Bir_Sayfada_KacKisi_Takip=15
     if Begen_Yorum_Sayisi1_Input.get()!="":
         Begen_Yorum_Sayisi=Begen_Yorum_Sayisi1_Input.get()
     else:
-        Begen_Yorum_Sayisi=4
+        Begen_Yorum_Sayisi=2
     
 
     global driver
@@ -186,6 +186,8 @@ def BaslaIslem():
             sleep(1)                     
         driver.refresh()
         print("SimdiyeKadarGecilen: "+str(kacKereGecildi)+"            Kac kisi takip ediliyor: "+str(kacKisiTakipEdildi))
+        if(kacKisiTakipEdildi>50):
+            break
 
         driver.get("https://www.instagram.com/explore/")                                                         # kesif ete girmek
         sleep(5)
