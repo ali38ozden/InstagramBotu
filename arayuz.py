@@ -3,6 +3,7 @@ import insta
 
 
 
+
 #############################       Arya yüz
 root=Tk()
 root.title("Instagram Botu")
@@ -11,9 +12,11 @@ root.geometry("1000x500")
 #root.config(bg="#FF7F01")
 
 
-
+def OtoBaslaFun():
+    global Ilk_Defa_Giris
+    Ilk_Defa_Giris=False
+    insta.BaslaIslem(Toplam_Islme1_Input.get(),Bir_Sayfada_KacKisi_Takip1_Input.get(),Begen_Yorum_Sayisi1_Input.get(),Ilk_Defa_Giris,kullaniciAdiInput.get(),sifreInput.get())
     
-
 def ElIleGiris():
     Ilk_Defa_Giris=True
     insta.BaslaIslem(Toplam_Islme1_Input.get(),Bir_Sayfada_KacKisi_Takip1_Input.get(),Begen_Yorum_Sayisi1_Input.get(),Ilk_Defa_Giris,kullaniciAdiInput.get(),sifreInput.get())
@@ -27,7 +30,7 @@ oto =Label(root,text="Oto")
 oto.place(relx=0.2,rely=0.15,relwidth=0.2,relheight=0.1)
 
 global otoBasla
-otoBasla=Button(root,text="Basla",command=insta.OtoBaslaFun,width=4,height=3)
+otoBasla=Button(root,text="Basla",command=OtoBaslaFun,width=4,height=3)
 otoBasla.place(relx=0.2,rely=0.25,relwidth=0.2,relheight=0.1)
 
 global Toplam_Islme1
@@ -101,6 +104,9 @@ elIleBasla.place(relx=0.7,rely=0.5,relwidth=0.2,relheight=0.1)
 global kapat1
 kapat1=Button(root,text="Kapat",command=Kapat,width=4,height=3,bg="#ff0000")
 kapat1.place(relx=0.7,rely=0.7,relwidth=0.2,relheight=0.1)
+
+
+
 
 #############################       Arya yüz
 

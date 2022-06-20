@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from time import sleep
 import random
-import arayuz
+
 import notifypy
 
 
@@ -17,31 +17,25 @@ text=["gT","GT","Gt","takip edermisiniz","gt","takipe takip ","nice post","gt","
     "umdum cenneten ","zaman öylede geçiyor","hayat böylede bitiyor","bu yourmu okuyosan okumuş oluyosun sdfhasdfaf","güzel post","yazlım ile uğraşan varmı","bir takip ederseniz sevinirim be","yazlim oğrenmek istyenler buyursun efendim"]
 
 
-def OtoBaslaFun():
-    global Ilk_Defa_Giris
-    Ilk_Defa_Giris=False
-    BaslaIslem()
 
-
-
-def BaslaIslem():
+def BaslaIslem(toplaIslem,takipKisi,begenTopalm,Ilk_Defa_Giris,kullanciAdi,kullaniciSifre1):
     #sistem
     kacKereGecildi=0
     kacKisiTakipEdildi=0
     postbulundu=True
     
-    if arayuz.Toplam_Islme1_Input.get()!="":
-        Toplam_Islme=arayuz.Toplam_Islme1_Input.get()
+    if toplaIslem!="":
+        Toplam_Islme=toplaIslem
     else:
         Toplam_Islme=10      
                                                                      
-    if  arayuz.Bir_Sayfada_KacKisi_Takip1_Input.get()!="":
-        Bir_Sayfada_KacKisi_Takip= arayuz.Bir_Sayfada_KacKisi_Takip1_Input.get()
+    if  takipKisi!="":
+        Bir_Sayfada_KacKisi_Takip= takipKisi
     else:
         Bir_Sayfada_KacKisi_Takip=10
         
-    if arayuz.Begen_Yorum_Sayisi1_Input.get()!="":
-        Begen_Yorum_Sayisi=arayuz.Begen_Yorum_Sayisi1_Input.get()
+    if begenTopalm!="":
+        Begen_Yorum_Sayisi=begenTopalm
     else:
         Begen_Yorum_Sayisi=2
     
@@ -54,8 +48,8 @@ def BaslaIslem():
     driver.maximize_window()
 
     if Ilk_Defa_Giris==True:
-        kullaniciAdi=arayuz.kullaniciAdiInput.get()
-        kullaniciSifre=arayuz.sifreInput.get()
+        kullaniciAdi=kullanciAdi
+        kullaniciSifre=kullaniciSifre1
         sleep(5)
         driver.find_element_by_xpath("/html/body/div[1]/section/main/article/div[2]/div[1]/div[2]/form/div/div[1]/div/label/input")\
             .send_keys(kullaniciAdi)
