@@ -16,6 +16,18 @@ def otoK():
     k1=Thread(target=Kapat)
     k1.start()
 
+def bilgiCek():
+    try:
+        Takip_Edilen.config(text="Takip_Edilen: "+str(insta.kacKisiTakipEdildi))
+        
+    except:
+        print("bilgiler cekilemedi")
+    try:
+        Yorum_Begeni.config(text="Yorum_Begeni: "+str(insta.begen_yorum))
+    except:
+        print("yorum da sorun cikti")
+  
+
 def OtoBaslaFun():
     global Ilk_Defa_Giris
     Ilk_Defa_Giris=False
@@ -116,6 +128,21 @@ global kapat1
 kapat1=Button(root,text="Kapat",command=otoK,width=4,height=3,bg="#ff0000")
 kapat1.place(relx=0.7,rely=0.7,relwidth=0.2,relheight=0.1)
 
-#############################       Arya yüz
+#intadan bilgicekmek
+global Takip_Edilen
+Takip_Edilen =Label(root,text="Takip_Edilen: 0",fg="#FF7F00")
+Takip_Edilen.place(relx=0.36,rely=0.5,relwidth=0.13,relheight=0.1)
 
+global Yorum_Begeni
+Yorum_Begeni =Label(root,text="Yorum_Begeni: 0",fg="#FF7F00")
+Yorum_Begeni.place(relx=0.36,rely=0.6,relwidth=0.13,relheight=0.1)
+
+global BilgiCek
+BilgiCek=Button(root,text="Bilgi Cek",command=bilgiCek,width=4,height=3)
+BilgiCek.place(relx=0.36,rely=0.7,relwidth=0.13,relheight=0.1)
+
+
+
+
+#############################       Arya yüz
 root.mainloop()

@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 from time import sleep
 import random
 
+
 import notifypy
 
 
@@ -20,22 +21,27 @@ text=["gT","GT","Gt","takip edermisiniz","gt","takipe takip ","nice post","gt","
 
 def BaslaIslem(toplaIslem,takipKisi,begenTopalm,Ilk_Defa_Giris,kullanciAdi,kullaniciSifre1):
     #sistem
+    global begen_yorum
+    begen_yorum=0
+    global kacKereGecildi
     kacKereGecildi=0
+    global kacKisiTakipEdildi
     kacKisiTakipEdildi=0
     postbulundu=True
+    print("insta toplam islem")
     
     if toplaIslem!="":
-        Toplam_Islme=toplaIslem
+        Toplam_Islme=int(toplaIslem)
     else:
         Toplam_Islme=10      
                                                                      
     if  takipKisi!="":
-        Bir_Sayfada_KacKisi_Takip= takipKisi
+        Bir_Sayfada_KacKisi_Takip= int(takipKisi)
     else:
         Bir_Sayfada_KacKisi_Takip=10
         
     if begenTopalm!="":
-        Begen_Yorum_Sayisi=begenTopalm
+        Begen_Yorum_Sayisi=int(begenTopalm)
     else:
         Begen_Yorum_Sayisi=2
     
@@ -72,11 +78,13 @@ def BaslaIslem(toplaIslem,takipKisi,begenTopalm,Ilk_Defa_Giris,kullanciAdi,kulla
         sleep(2)
         for c in  range(Bir_Sayfada_KacKisi_Takip): #Takip etme dondgusu
             k=str(c+1)
+            
             try:
                 driver.find_element_by_xpath("/html/body/div[1]/div/div[1]/div/div[1]/div/div/div[1]/div[1]/section/main/div/div[2]/div/div/div["+k+"]/div[3]/button/div")\
                 .click() 
                 kacKisiTakipEdildi=kacKisiTakipEdildi+1; 
             except:
+                
                 kacKereGecildi=kacKereGecildi+1
                 print("Button: "+str(k)+" gecildi                SimdiyeKadarGecilen: "+str(kacKereGecildi)+"            Kac kisi takip ediliyor: "+str(kacKisiTakipEdildi))
                 pass               
@@ -131,6 +139,7 @@ def BaslaIslem(toplaIslem,takipKisi,begenTopalm,Ilk_Defa_Giris,kullanciAdi,kulla
             
             sleep(random.randint(0,2))
             try:
+                begen_yorum=begen_yorum+1
                 driver.find_element_by_xpath("/html/body/div[1]/div/div[1]/div/div[2]/div/div/div[1]/div/div[3]/div/div/div/div/div[2]/div/article/div/div[2]/div/div/div[2]/section[3]/div/form/button/div").click()           # paylaşa basldı
             except:
                 print("payaş geçildi")
