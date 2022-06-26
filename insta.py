@@ -28,7 +28,6 @@ def BaslaIslem(toplaIslem,takipKisi,begenTopalm,Ilk_Defa_Giris,kullanciAdi,kulla
     global kacKisiTakipEdildi
     kacKisiTakipEdildi=0
     postbulundu=True
-    print("insta toplam islem")
     
     if toplaIslem!="":
         Toplam_Islme=int(toplaIslem)
